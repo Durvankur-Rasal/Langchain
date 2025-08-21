@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube RAG Chatbot</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YouTube AI Assistant</h1>
+            <p class="subtitle">Ask questions about any YouTube video</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <div class="form-group">
+                    <label for="video-url">YouTube Video URL or ID</label>
+                    <input type="text" id="video-url" placeholder="https://www.youtube.com/watch?v=..." autocomplete="off">
+                </div>
+                
+                <div id="video-preview" class="video-preview" style="display: none;">
+                    <div class="video-container">
+                        <iframe id="yt-player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label for="question">Your Question</label>
+                    <textarea id="question" placeholder="What is this video about?"></textarea>
+                </div>
+                
+                <div class="buttons">
+                    <button id="submit-btn" class="btn-primary">
+                        <i class="fas fa-search"></i> Ask Question
+                    </button>
+                    <button id="clear-btn" class="btn-secondary">
+                        <i class="fas fa-redo"></i> Clear
+                    </button>
+                </div>
+                
+                <div id="error-message" class="error-message">
+                    <i class="fas fa-exclamation-circle"></i> <span id="error-text"></span>
+                </div>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+            </div>
+
+            <div id="response-section">
+                <div class="response-header">
+                    <h3>
+                        <i class="fas fa-robot"></i> 
+                        Response <span class="badge badge-ai">AI</span>
+                    </h3>
+                    <span class="copy-icon" id="copy-response" title="Copy response">
+                        <i class="far fa-copy"></i>
+                    </span>
+                </div>
+                <div id="response-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
