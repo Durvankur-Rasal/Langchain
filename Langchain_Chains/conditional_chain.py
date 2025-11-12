@@ -43,7 +43,7 @@ branch_chain = RunnableBranch(
     RunnableLambda(lambda x: "could not find sentiment")
 )
 
-chain = classifier_chain | branch_chain
+chain = classifier_chain | branch_chain  
 
 print(chain.invoke({'feedback': 'this is a beautiful phone, i love it, i will buy it'}))
 
